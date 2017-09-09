@@ -1,0 +1,63 @@
+/*
+ * filesystem.c
+ *
+ *  Created on: 3/9/2017
+ *      Author: utnso
+ */
+
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include "funcionesfs.h"
+#include <pthread.h>
+
+
+
+
+
+int main() {
+	int socketEscucha;
+	fd_set fdSocketsEscucha;
+	FD_ZERO(&fdSocketsEscucha);
+
+
+	socketEscucha= escuchar(4000);
+	FD_SET(socketEscucha, &fdSocketsEscucha);
+
+	pthread_t threadEsperaConexiones;
+	pthread_t threadEscucharConsola;
+
+	t_esperar_conexion *esperarConexion;
+
+	esperarConexion = malloc(sizeof(t_esperar_conexion));
+
+	esperarConexion->fdSocketEscucha = fdSocketsEscucha;
+	esperarConexion->socketEscucha = socketEscucha;
+
+	if(pthread_create(&threadEsperaConexiones, NULL, esperarConexiones,(void*) esperarConexion)) {
+
+	fprintf(stderr, "Error creating thread\n");
+	exit(1);
+
+	}
+
+	escucharConsola();
+
+	if(pthread_join(threadEsperaConexiones, NULL)){
+		fprintf(stderr, "Error joining thread\n");
+		exit(1);
+
+	};
+
+	//int er1 = pthread_create(&threadEscucharConsola,NULL,escucharConsola,NULL);
+
+	//int er2 = pthread_create(&threadEsperaConexiones, NULL,
+	//				esperarConexiones,
+	//				(void*) esperarConexion);
+
+	//while(1);
+	return 0;
+}
+

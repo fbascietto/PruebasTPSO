@@ -1,0 +1,19 @@
+19:58:48 **** Build of configuration Debug for project pruebaBeejC ****
+make all 
+Building file: ../cliente.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"cliente.d" -MT"cliente.d" -o "cliente.o" "../cliente.c"
+../cliente.c: In function ‘main’:
+../cliente.c:74:6: warning: unused variable ‘enviar’ [-Wunused-variable]
+  int enviar = 1;
+      ^
+Finished building: ../cliente.c
+ 
+Building target: pruebaBeejC
+Invoking: Cross GCC Linker
+gcc  -o "pruebaBeejC"  ./cliente.o   
+Finished building target: pruebaBeejC
+ 
+
+19:58:49 Build Finished (took 289ms)
+

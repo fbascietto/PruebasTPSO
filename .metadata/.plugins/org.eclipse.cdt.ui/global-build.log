@@ -1,0 +1,47 @@
+20:07:56 **** Incremental Build of configuration Debug for project Tp8-9 ****
+make all 
+Building file: ../FileSystem/filesystem.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FileSystem/filesystem.d" -MT"FileSystem/filesystem.d" -o "FileSystem/filesystem.o" "../FileSystem/filesystem.c"
+../FileSystem/filesystem.c:20:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+ void main() {
+      ^
+../FileSystem/filesystem.c: In function ‘main’:
+../FileSystem/filesystem.c:26:2: warning: implicit declaration of function ‘escuchar’ [-Wimplicit-function-declaration]
+  socketEscucha= escuchar(4000);
+  ^
+Finished building: ../FileSystem/filesystem.c
+ 
+Building file: ../FileSystem/funcionesfs.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FileSystem/funcionesfs.d" -MT"FileSystem/funcionesfs.d" -o "FileSystem/funcionesfs.o" "../FileSystem/funcionesfs.c"
+../FileSystem/funcionesfs.c: In function ‘esperarConexiones’:
+../FileSystem/funcionesfs.c:18:3: warning: implicit declaration of function ‘esperarConexionesSocket’ [-Wimplicit-function-declaration]
+   nuevoSocket = esperarConexionesSocket(&argumentos->fdSocketEscucha,
+   ^
+../FileSystem/funcionesfs.c: In function ‘escucharConsola’:
+../FileSystem/funcionesfs.c:36:3: warning: implicit declaration of function ‘readline’ [-Wimplicit-function-declaration]
+   linea = readline("yamafs:" );
+   ^
+../FileSystem/funcionesfs.c:36:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+   linea = readline("yamafs:" );
+         ^
+../FileSystem/funcionesfs.c:38:5: warning: implicit declaration of function ‘add_history’ [-Wimplicit-function-declaration]
+     add_history(linea);
+     ^
+../FileSystem/funcionesfs.c: In function ‘esperarConexiones’:
+../FileSystem/funcionesfs.c:29:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../FileSystem/funcionesfs.c: In function ‘escucharConsola’:
+../FileSystem/funcionesfs.c:117:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../FileSystem/funcionesfs.c
+ 
+Building target: Tp8-9
+Invoking: Cross GCC Linker
+gcc -L/usr/include/readline -pthread -errno -o "Tp8-9"  ./bibliotecas/sockets.o  ./FileSystem/filesystem.o ./FileSystem/funcionesfs.o   -lreadline
+/usr/bin/ld: aviso: no se puede encontrar el símbolo de entrada rrno; se usa por defecto 0000000008048980
+Finished building target: Tp8-9
+ 

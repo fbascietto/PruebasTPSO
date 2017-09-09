@@ -1,0 +1,15 @@
+20:16:29 **** Build of configuration Debug for project pruebaBeej3 ****
+make all 
+Building file: ../showip.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"showip.d" -MT"showip.d" -o "showip.o" "../showip.c"
+Finished building: ../showip.c
+ 
+Building target: pruebaBeej3
+Invoking: Cross GCC Linker
+gcc  -o "pruebaBeej3"  ./showip.o   
+Finished building target: pruebaBeej3
+ 
+
+20:16:31 Build Finished (took 1s.639ms)
+

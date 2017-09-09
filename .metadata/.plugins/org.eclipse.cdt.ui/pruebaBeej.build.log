@@ -1,0 +1,15 @@
+20:47:13 **** Incremental Build of configuration Debug for project pruebaBeej ****
+make all 
+Building file: ../servidor.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"servidor.d" -MT"servidor.d" -o "servidor.o" "../servidor.c"
+Finished building: ../servidor.c
+ 
+Building target: pruebaBeej
+Invoking: Cross GCC Linker
+gcc  -o "pruebaBeej"  ./servidor.o   
+Finished building target: pruebaBeej
+ 
+
+20:47:14 Build Finished (took 1s.366ms)
+
